@@ -1,17 +1,30 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <task-list :tasks="tasks"></task-list>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import TaskList from './components/TaskList.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    'task-list': TaskList,
+  },
+  data: function() {
+    return  {
+      tasks: [
+        {
+          title: 'Buy bananas',
+          completed: true,
+        },
+        {
+          title: 'Conquer the world',
+          completed: false,
+        }
+      ]
+    }
   }
 }
 </script>
