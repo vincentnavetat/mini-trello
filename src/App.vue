@@ -1,6 +1,13 @@
 <template>
   <div id="app">
-    <column :tasks="tasks"></column>
+    <h1>To-do list</h1>
+
+    <ul>
+      <column v-for="(column, index) in columns" v-bind:column="column" v-bind:key="index" :columns="columns">
+      </column>
+    </ul>
+
+    <!-- <column :tasks="tasks"></column> -->
   </div>
 </template>
 
@@ -14,16 +21,44 @@ export default {
   },
   data: function() {
     return  {
-      tasks: [
+      columns: [
         {
-          title: 'Buy bananas',
-          completed: true,
+          title: 'first',
+          tasks: [
+            {
+              title: 'Buy bananas',
+              completed: true,
+            },
+            {
+              title: 'Conquer the world',
+              completed: false,
+            }
+          ],
         },
         {
-          title: 'Conquer the world',
-          completed: false,
-        }
-      ]
+          title: 'second',
+          tasks: [
+            {
+              title: 'Buy bananas',
+              completed: true,
+            },
+            {
+              title: 'Conquer the world',
+              completed: false,
+            }
+          ],
+        },
+      ],
+      // tasks: [
+      //   {
+      //     title: 'Buy bananas',
+      //     completed: true,
+      //   },
+      //   {
+      //     title: 'Conquer the world',
+      //     completed: false,
+      //   }
+      // ]
     }
   }
 }

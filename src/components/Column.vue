@@ -1,8 +1,9 @@
 <template>
-  <main>
-    <h1>To-do list</h1>
+  <div>
+    {{ column.title }}
+
     <ul>
-      <task v-for="(task, index) in tasks" v-bind:data="task" v-bind:key="index" :task="task" @remove="removeTask(index)">
+      <task v-for="(task, index) in column.tasks" v-bind:task="task" v-bind:key="index" :tasks="column.tasks" @remove="removeTask(index)">
       </task>
     </ul>
 
@@ -12,7 +13,7 @@
       <input type="text" placeholder="Add new task" v-model="newTask">
       <input type="submit" value="Add">
     </form>
-  </main>
+  </div>
 </template>
 
 <script>
@@ -20,9 +21,7 @@ import Task from './Task.vue'
 
 export default {
   name: 'column',
-  props: {
-    tasks: {default: []}
-  },
+  props: ['column'],
   data() {
     return {
       newTask: '',
