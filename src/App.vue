@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <task-list :tasks="tasks"></task-list>
+    <column :tasks="tasks"></column>
   </div>
 </template>
 
 <script>
-import TaskList from './components/TaskList.vue'
+import Column from './components/Column.vue'
 
 export default {
   name: 'app',
   components: {
-    'task-list': TaskList,
+    'column': Column,
   },
   data: function() {
     return  {

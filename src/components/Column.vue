@@ -19,7 +19,7 @@
 import Task from './Task.vue'
 
 export default {
-  name: 'task-list',
+  name: 'column',
   props: {
     tasks: {default: []}
   },
