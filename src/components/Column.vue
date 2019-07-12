@@ -1,7 +1,8 @@
 <template>
   <div class="column">
     <header class="column__header">
-      <h2>{{ column.title }}</h2>
+      <div class="title__text" @click="editTitle" ref="title">{{ column.title }}</div>
+      <input type="test" v-model="column.title" class="title__input hide" ref="titleInput" @blur="quitEditTitle">
       <button @click="$emit('remove')">x</button>
     </header>
 
@@ -30,6 +31,15 @@ export default {
     'task' : Task,
   },
   methods: {
+    editTitle() {
+      this.$refs.title.classList.add('hide');
+      this.$refs.titleInput.classList.add('show');
+      this.$refs.titleInput.focus();
+    },
+    quitEditTitle() {
+      this.$refs.title.classList.remove('hide');
+      this.$refs.titleInput.classList.remove('show');
+    },
     addTask() {
       this.column.tasks.push({
         title: this.newTask,
@@ -54,5 +64,19 @@ export default {
 .column__header {
   display: flex;
   justify-content: space-between;
+}
+
+.title__text,
+.title__input {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
 }
 </style>
