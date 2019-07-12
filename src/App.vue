@@ -1,10 +1,14 @@
 <template>
-  <div id="app">
-    <h1>To-do list</h1>
+  <main id="app">
+    <header>
+      <h1>Mini Trello</h1>
+    </header>
 
-    <column v-for="(column, index) in columns" v-bind:column="column" v-bind:key="index" :columns="columns">
-    </column>
-  </div>
+    <div class="columns">
+      <column v-for="(column, index) in columns" v-bind:column="column" v-bind:key="index" :columns="columns">
+      </column>
+    </div>
+  </main>
 </template>
 
 <script>
@@ -19,7 +23,7 @@ export default {
     return  {
       columns: [
         {
-          title: 'first',
+          title: 'To-do',
           tasks: [
             {
               title: 'Buy bananas',
@@ -32,14 +36,14 @@ export default {
           ],
         },
         {
-          title: 'second',
+          title: 'In progress',
           tasks: [
             {
-              title: 'Buy bananas',
+              title: 'Learning VueJS',
               completed: true,
             },
             {
-              title: 'Conquer the world',
+              title: 'Do something',
               completed: false,
             }
           ],
@@ -56,5 +60,11 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  column-gap: 1rem;
 }
 </style>

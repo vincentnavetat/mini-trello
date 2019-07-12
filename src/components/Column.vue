@@ -1,6 +1,6 @@
 <template>
-  <li>
-    {{ column.title }}
+  <div class="column">
+    <h2>{{ column.title }}</h2>
 
     <task v-for="(task, index) in column.tasks" v-bind:task="task" v-bind:key="index" :tasks="column.tasks" @remove="removeTask(index)">
     </task>
@@ -11,7 +11,7 @@
       <input type="text" placeholder="Add new task" v-model="newTask">
       <input type="submit" value="Add">
     </form>
-  </li>
+  </div>
 </template>
 
 <script>
@@ -45,3 +45,11 @@ export default {
   }
 }
 </script>
+
+<style>
+.column {
+  border: 1px solid black;
+  border-radius: 2px;
+  padding: 1rem;
+}
+</style>
