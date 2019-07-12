@@ -4,22 +4,31 @@
       <h1>Mini Trello</h1>
     </header>
 
-    <div class="columns">
+    <draggable
+      :list="columns"
+      class="columns"
+      ghost-class="ghost"
+      @start="dragging = true"
+      @end="dragging = false"
+    >
       <column v-for="(column, index) in columns" v-bind:column="column" v-bind:key="index" :columns="columns" @remove="removeColumn(index)">
       </column>
-      <div>
-        <button @click="addColumn()">Add new column</button>
-      </div>
+    </draggable>
+
+    <div>
+      <button @click="addColumn()">Add new column</button>
     </div>
   </main>
 </template>
 
 <script>
+import draggable from "vuedraggable";
 import Column from './components/Column.vue'
 
 export default {
   name: 'app',
   components: {
+    draggable,
     'column': Column,
   },
   data: function() {
