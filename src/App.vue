@@ -8,6 +8,8 @@
       <column v-for="(column, index) in columns" v-bind:column="column" v-bind:key="index" :columns="columns">
       </column>
     </div>
+
+    <button @click="addColumn()">Add new column</button>
   </main>
 </template>
 
@@ -46,6 +48,14 @@ export default {
         },
       ],
     }
+  },
+  methods: {
+    addColumn() {
+      this.columns.push({
+        title: 'New col!',
+        tasks: [],
+      });
+    },
   }
 }
 </script>
