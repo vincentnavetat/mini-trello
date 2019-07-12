@@ -32,17 +32,17 @@ export default {
   },
   methods: {
     addTask() {
-      this.tasks.push({
+      this.column.tasks.push({
         title: this.newTask,
         completed: false,
       });
       this.newTask = '';
     },
     removeTask(index) {
-      this.tasks.splice(index, 1);
+      this.column.tasks.splice(index, 1);
     },
     clearAllTasks() {
-      this.tasks.map(task => task.completed = true);
+      this.column.tasks.map(task => task.completed = true);
     }
   }
 }
