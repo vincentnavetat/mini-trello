@@ -1,11 +1,9 @@
 <template>
-  <div>
+  <li>
     {{ column.title }}
 
-    <ul>
-      <task v-for="(task, index) in column.tasks" v-bind:task="task" v-bind:key="index" :tasks="column.tasks" @remove="removeTask(index)">
-      </task>
-    </ul>
+    <task v-for="(task, index) in column.tasks" v-bind:task="task" v-bind:key="index" :tasks="column.tasks" @remove="removeTask(index)">
+    </task>
 
     <button @click="clearAllTasks">I'm all done with my tasks</button>
 
@@ -13,7 +11,7 @@
       <input type="text" placeholder="Add new task" v-model="newTask">
       <input type="submit" value="Add">
     </form>
-  </div>
+  </li>
 </template>
 
 <script>
