@@ -8,7 +8,7 @@
 
     <draggable
         :list="column.tasks"
-        class="list-group"
+        class="tasks"
         ghost-class="ghost"
         @start="dragging = true"
         @end="dragging = false"
@@ -17,8 +17,8 @@
       </task>
     </draggable>
 
-    <form v-on:submit.prevent="addTask">
-      <input type="text" placeholder="Add new task" v-model="newTask">
+    <form class="create-task" v-on:submit.prevent="addTask">
+      <input type="text" placeholder="Add new task" v-model="newTask" class="create-task__title">
       <input type="submit" value="Add">
     </form>
   </div>
@@ -66,6 +66,7 @@ export default {
 
 <style>
 .column {
+  background: white;
   border: 1px solid black;
   border-radius: 2px;
   padding: 1rem;
@@ -82,11 +83,16 @@ export default {
   font-weight: bold;
 }
 
-.hide {
-  display: none;
+.tasks {
+  margin: 1rem 0;
 }
 
-.show {
-  display: block;
+.create-task {
+  display: flex;
+}
+
+.create-task__title {
+  display: flex;
+  flex: 1;
 }
 </style>

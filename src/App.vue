@@ -86,4 +86,12 @@ body {
   grid-template-columns: repeat(6, 1fr);
   column-gap: 1rem;
 }
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
 </style>
