@@ -5,9 +5,8 @@
     </header>
 
     <draggable
-      :list="columns"
+      v-model="columns"
       class="columns"
-      ghost-class="ghost"
       @start="dragging = true"
       @end="dragging = false"
     >

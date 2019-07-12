@@ -7,12 +7,11 @@
     </header>
 
     <draggable
-        :list="column.tasks"
-        class="tasks"
-        ghost-class="ghost"
-        @start="dragging = true"
-        @end="dragging = false"
-      >
+      v-model="column.tasks"
+      class="tasks"
+      @start="dragging = true"
+      @end="dragging = false"
+    >
       <task v-for="(task, index) in column.tasks" v-bind:task="task" v-bind:key="index" :tasks="column.tasks" @remove="removeTask(index)">
       </task>
     </draggable>
