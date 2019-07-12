@@ -5,8 +5,6 @@
     <task v-for="(task, index) in column.tasks" v-bind:task="task" v-bind:key="index" :tasks="column.tasks" @remove="removeTask(index)">
     </task>
 
-    <button @click="clearAllTasks">I'm all done with my tasks</button>
-
     <form v-on:submit.prevent="addTask">
       <input type="text" placeholder="Add new task" v-model="newTask">
       <input type="submit" value="Add">
@@ -39,9 +37,6 @@ export default {
     removeTask(index) {
       this.column.tasks.splice(index, 1);
     },
-    clearAllTasks() {
-      this.column.tasks.map(task => task.completed = true);
-    }
   }
 }
 </script>

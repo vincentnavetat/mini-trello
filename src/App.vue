@@ -27,11 +27,9 @@ export default {
           tasks: [
             {
               title: 'Buy bananas',
-              completed: true,
             },
             {
               title: 'Conquer the world',
-              completed: false,
             }
           ],
         },
@@ -40,11 +38,9 @@ export default {
           tasks: [
             {
               title: 'Learning VueJS',
-              completed: true,
             },
             {
               title: 'Do something',
-              completed: false,
             }
           ],
         },
