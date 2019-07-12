@@ -1,6 +1,9 @@
 <template>
   <div class="column">
-    <h2>{{ column.title }}</h2>
+    <header class="column__header">
+      <h2>{{ column.title }}</h2>
+      <button @click="$emit('remove')">x</button>
+    </header>
 
     <task v-for="(task, index) in column.tasks" v-bind:task="task" v-bind:key="index" :tasks="column.tasks" @remove="removeTask(index)">
     </task>
@@ -46,5 +49,10 @@ export default {
   border: 1px solid black;
   border-radius: 2px;
   padding: 1rem;
+}
+
+.column__header {
+  display: flex;
+  justify-content: space-between;
 }
 </style>

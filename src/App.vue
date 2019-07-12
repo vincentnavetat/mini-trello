@@ -5,11 +5,12 @@
     </header>
 
     <div class="columns">
-      <column v-for="(column, index) in columns" v-bind:column="column" v-bind:key="index" :columns="columns">
+      <column v-for="(column, index) in columns" v-bind:column="column" v-bind:key="index" :columns="columns" @remove="removeColumn(index)">
       </column>
+      <div>
+        <button @click="addColumn()">Add new column</button>
+      </div>
     </div>
-
-    <button @click="addColumn()">Add new column</button>
   </main>
 </template>
 
@@ -55,6 +56,9 @@ export default {
         title: 'New col!',
         tasks: [],
       });
+    },
+    removeColumn(index) {
+      this.columns.splice(index, 1);
     },
   }
 }
