@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="task">
     {{ task.title }}
     <button @click="$emit('remove')">x</button>
   </div>
@@ -12,3 +12,8 @@ export default {
 }
 </script>
 
+<style>
+.task:hover {
+  cursor: move;
+}
+</style>

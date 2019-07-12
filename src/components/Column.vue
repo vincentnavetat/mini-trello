@@ -6,8 +6,16 @@
       <button @click="$emit('remove')">x</button>
     </header>
 
-    <task v-for="(task, index) in column.tasks" v-bind:task="task" v-bind:key="index" :tasks="column.tasks" @remove="removeTask(index)">
-    </task>
+    <draggable
+        :list="column.tasks"
+        class="list-group"
+        ghost-class="ghost"
+        @start="dragging = true"
+        @end="dragging = false"
+      >
+      <task v-for="(task, index) in column.tasks" v-bind:task="task" v-bind:key="index" :tasks="column.tasks" @remove="removeTask(index)">
+      </task>
+    </draggable>
 
     <form v-on:submit.prevent="addTask">
       <input type="text" placeholder="Add new task" v-model="newTask">
@@ -17,6 +25,7 @@
 </template>
 
 <script>
+import draggable from "vuedraggable";
 import Task from './Task.vue'
 
 export default {
@@ -28,6 +37,7 @@ export default {
     };
   },
   components: {
+    draggable,
     'task' : Task,
   },
   methods: {
